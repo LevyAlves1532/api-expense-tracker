@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\IncomeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,14 @@ Route::middleware('auth:api')->group(function() {
         Route::post('/', [IncomeController::class, 'store']);
         Route::delete('/{id}', [IncomeController::class, 'delete']);
     });
+
+    Route::prefix('expense')->group(function() {
+        Route::get('/', [ExpenseController::class, 'index']);
+
+        Route::post('/', [ExpenseController::class, 'store']);
+        Route::delete('/{id}', [ExpenseController::class, 'delete']);
+    });
 });
 
 Route::get('/income/{user_id}/download', [IncomeController::class, 'downloadIncomeExcel']);
+Route::get('/expense/{user_id}/download', [ExpenseController::class, 'downloadExpenseExcel']);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\UserIncomesExport;
 use App\Http\Requests\Income\StoreRequest;
 use App\Models\Income;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
@@ -43,6 +44,10 @@ class IncomeController extends Controller
 
     public function downloadIncomeExcel(string $user_id)
     {
-        return Excel::download(new UserIncomesExport($user_id), 'incomes.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+        if (User::find($user_id)) {
+            return Excel::download(new UserIncomesExport($user_id), 'incomes.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+        } else {
+            return response()->json(['User not exists'], 404);
+        }
     }
 }
