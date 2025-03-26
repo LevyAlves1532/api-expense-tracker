@@ -25,7 +25,11 @@ class AuthController extends Controller
         $user->addMedia(public_path('media/' . $path))
             ->toMediaCollection();
 
-        return $user;
+        if (! $token = Auth::attempt(['email' => $body['email'], 'password' => $body['password']])) {
+            return response()->json(['error' => 'Login ou senha estão incorretos!'], 400);
+        }
+
+        return $this->respondWithToken($token);
     }
 
     public function login()
@@ -33,7 +37,7 @@ class AuthController extends Controller
         $credentials = request(['email', 'password']);
 
         if (! $token = Auth::attempt($credentials)) {
-            return response()->json(['error' => 'Login ou senha estão incorretos!'], 401);
+            return response()->json(['error' => 'Login ou senha estão incorretos!'], 400);
         }
 
         return $this->respondWithToken($token);
