@@ -1,66 +1,76 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+![Logo do projeto](https://github.com/LevyAlves1532/model-portfolio/blob/master/readme/hero.jpg)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## API Expense Tracker
+A API do Expense Tracker foi inspirada em um projeto de controle financeiro originalmente desenvolvido em Node.js pelo canal Time To Program. Esta versão em Laravel foi construída com foco na aprendizagem pessoal, proporcionando uma transição valiosa para o desenvolvimento de APIs com Laravel. O Expense Tracker permite gerenciar receitas e despesas de forma eficiente, oferecendo insights detalhados sobre os gastos mensais. É uma ferramenta poderosa para controle financeiro pessoal, adaptada com as funcionalidades e estrutura robusta do framework Laravel.
 
-## About Laravel
+## Referência
+[Aula que assistir - Build a Full-Stack MERN Expense Tracker | React, Node.js, MongoDB, Express | MERN Project - Canal Time To Program](https://www.youtube.com/watch?v=PQnbtnsYUho)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Tecnologias
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Tecnologias usadas no projeto:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+  * PHP 8.2.12
+  * Laravel 12.0.0
+  * Composer 2.8.4
 
-## Learning Laravel
+## Serviços Usados
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+É necessário haver um banco de dados MySQL, para pode ter um armazenamento de dados da API.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Para Iniciar
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+  * Ambiente:
+    - Ter o PHP na versão 8.2.12 ou superior
+    - Ter o Composer na versão 2 ou superior
+  
+  * Executar Projeto:
+    - Instale as dependencias do projeto com o seguinte comando: `composer install`
+    - Copie e cole na raiz do projeto o arquivo `.env.example` e renomeie a cópia para `.env`
+    - Gere uma chave para o seu projeto Laravel com o seguinte comando: `php artisan key:generate`
+    - Gere um token jwt com o seguinte comando: `php artisan jwt:secret` caso ele faça alguma pergunta digite/selecione `yes`
+    - Conectar-se a um banco de dados MySQl:
+      ```
+        DB_CONNECTION=mysql
+        DB_HOST=localhost
+        DB_PORT=3306
+        DB_DATABASE=laravel_expense_tracker
+        DB_USERNAME=root
+        DB_PASSWORD=root
+      ```
+    - Logo após roda o comando: `php artisan migrate`, ele vai criar todas as tabelas do projeto no banco de dados
+    - Para iniciar o projeto: `php artisan serve`
+    - Depois só abrir a URL do site e cole no `APP_URL` do `.env`
 
-## Laravel Sponsors
+## Como usar?
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Rotas
 
-### Premium Partners
+* `/auth/login` (POST) => Login de usuário
+* `/auth/register` (POST) => Registra um novo usuário
+* `/auth/me` (GET) => Pega informação do usuário logado
+* `/dashboard/data` (GET) => Pega informações gerais sobre as transações da conta
+* `/income/` (GET) => Mostra todas as rendas do usuário logado
+* `/income/` (POST) => Adiciona um nova renda
+* `/income/{id}` (DELETE) => Deleta uma renda
+* `/income/{user_id}/download` (GET) => Baixa um relatório de renda referente ao usuário
+* `/expense/` (GET) => Mostra todas as despesas do usuário logado
+* `/expense/` (POST) => Adiciona um nova despesa
+* `/expense/{id}` (DELETE) => Deleta uma despesa
+* `/expense/{user_id}/download` (GET) => Baixa um relatório de despesas referente ao usuário
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## Links
 
-## Contributing
+  * Repositorio: https://github.com/LevyAlves1532/api-expense-tracker
+    - Caso você encontre algum bug, ou tenha dúvidas sobre o projeto, entre em contato levy.pereiraA1532@gmail.com, desde já agradeço pela atenção!
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+  ## Versão do Projeto
 
-## Code of Conduct
+  1.0.0
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+  ## Autor do Projeto
 
-## Security Vulnerabilities
+  * **Lêvy Pereira Alves**
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+  Siga o github e junte-se a nós!
+  Obrigado por me visitar e boa codificação!
