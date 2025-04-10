@@ -1,4 +1,4 @@
-![Logo do projeto](https://github.com/LevyAlves1532/model-portfolio/blob/master/readme/hero.jpg)
+![Imagem inicial do projeto](https://github.com/LevyAlves1532/api-expense-tracker/blob/master/readme/register.jpg)
 
 ## API Expense Tracker
 A API do Expense Tracker foi inspirada em um projeto de controle financeiro originalmente desenvolvido em Node.js pelo canal Time To Program. Esta versão em Laravel foi construída com foco na aprendizagem pessoal, proporcionando uma transição valiosa para o desenvolvimento de APIs com Laravel. O Expense Tracker permite gerenciar receitas e despesas de forma eficiente, oferecendo insights detalhados sobre os gastos mensais. É uma ferramenta poderosa para controle financeiro pessoal, adaptada com as funcionalidades e estrutura robusta do framework Laravel.
@@ -58,6 +58,15 @@ Rotas
 * `/expense/` (POST) => Adiciona um nova despesa
 * `/expense/{id}` (DELETE) => Deleta uma despesa
 * `/expense/{user_id}/download` (GET) => Baixa um relatório de despesas referente ao usuário
+
+[Download Postman Collection](https://github.com/LevyAlves1532/api-expense-tracker/blob/master/readme/expense_tracker_api.postman_collection)
+
+# Imagens do Projeto
+![Rota de cadastro](https://github.com/LevyAlves1532/api-expense-tracker/blob/master/readme/register.jpg)
+![Rota para consultar meus dados](https://github.com/LevyAlves1532/api-expense-tracker/blob/master/readme/me.jpg)
+![Rota de visualização das rendas](https://github.com/LevyAlves1532/api-expense-tracker/blob/master/readme/get_all_income.jpg)
+![Rota de visualização das despesas](https://github.com/LevyAlves1532/api-expense-tracker/blob/master/readme/get_all_expense.jpg)
+![Rota de visualização de dados gerais](https://github.com/LevyAlves1532/api-expense-tracker/blob/master/readme/get_dashboard_data.jpg)
 
 ## Links
 
