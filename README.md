@@ -25,22 +25,16 @@ Tecnologias usadas no projeto:
     - Ter o Composer na versão 2 ou superior
   
   * Executar Projeto:
-    - Instale as dependencias do projeto com o seguinte comando: `composer install`
     - Copie e cole na raiz do projeto o arquivo `.env.example` e renomeie a cópia para `.env`
-    - Gere uma chave para o seu projeto Laravel com o seguinte comando: `php artisan key:generate`
-    - Gere um token jwt com o seguinte comando: `php artisan jwt:secret` caso ele faça alguma pergunta digite/selecione `yes`
-    - Conectar-se a um banco de dados MySQl:
-      ```
-        DB_CONNECTION=mysql
-        DB_HOST=localhost
-        DB_PORT=3306
-        DB_DATABASE=laravel_expense_tracker
-        DB_USERNAME=root
-        DB_PASSWORD=root
-      ```
-    - Logo após roda o comando: `php artisan migrate`, ele vai criar todas as tabelas do projeto no banco de dados
-    - Para iniciar o projeto: `php artisan serve`
-    - Depois só abrir a URL do site e cole no `APP_URL` do `.env`
+    - Instale as dependencias do projeto com o seguinte comando: `composer install`
+    - Execute o comando `./vendor/bin/sail up -d` para iniciar o projeto com o docker<br/>
+    Observação quando caso você queira mudar as portas em que os containers vão iniciar entre no arquivo `.env`
+    - Logo após rode o comando o `./vendor/bin/sail composer install`, após o `./vendor/bin/sail composer update` para atualizar as depêndencias e após o `./vendor/bin/sail composer du` para limpar o cache do composer
+    - Gere uma chave para o seu projeto Laravel com o seguinte comando: `./vendor/bin/sail art key:generate`
+    - Logo após roda o comando: `./vendor/bin/sail art migrate`, ele vai criar todas as tabelas do projeto no banco de dados
+    - Gere um token jwt com o seguinte comando: `./vendor/bin/sail art jwt:secret` caso ele faça alguma pergunta digite/selecione `yes`
+    - A partir desse ponto seu projeto Laravel já estará funcionando, caso não tenha mudado a porta esse será o link:<br />
+    [Localhost](http://localhost/)
 
 ## Como usar?
 
